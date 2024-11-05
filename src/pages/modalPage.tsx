@@ -1,10 +1,10 @@
-"use client";
-
 import { Dialog } from "@/components/atoms";
+import "../app/globals.css";
 import { useState } from "react";
 
-export default function Home() {
+export default function ModalPage() {
   const [open, setOpen] = useState(false);
+  const [otherOpen, setOtherOpen] = useState(false);
   return (
     <main className="">
       <section className="bg-white dark:bg-gray-900 h-screen">
@@ -27,9 +27,9 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fillRule="evenodd"
+                fill-rule="evenodd"
                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clipRule="evenodd"
+                clip-rule="evenodd"
               ></path>
             </svg>
           </a>
@@ -41,8 +41,8 @@ export default function Home() {
             and capital can unlock long-term value and drive economic growth.
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a
-              href="#"
+            <button
+              onClick={() => setOtherOpen(!otherOpen)}
               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
             >
               Learn more
@@ -53,12 +53,12 @@ export default function Home() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fillRule="evenodd"
+                  fill-rule="evenodd"
                   d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                  clipRule="evenodd"
+                  clip-rule="evenodd"
                 ></path>
               </svg>
-            </a>
+            </button>
             <button
               onClick={() => setOpen(!open)}
               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
@@ -78,6 +78,11 @@ export default function Home() {
             handleClose={() => setOpen(false)}
             open={open}
             Title={<h1>Video! </h1>}
+          />
+          <Dialog
+            handleClose={() => setOtherOpen(false)}
+            open={otherOpen}
+            Title={<h1>Other! </h1>}
           />
           <div className="px-4 mx-auto text-center md:max-w-screen-md lg:max-w-screen-lg lg:px-36">
             <span className="font-semibold text-gray-400 uppercase">
